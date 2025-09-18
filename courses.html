@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Title</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="lang-switcher">
+            <a href="courses.html" class="lang-btn active">🇨🇿</a>
+            <a href="ua/courses.html" class="lang-btn">🇺🇦</a>
+            <a href="ru/courses.html" class="lang-btn">🇷🇺</a>
+        </div>
+        <h1>Jazykové kurzy</h1>
+        <nav>
+            <a href="index.html" class="nav-link">Domů</a>
+            <a href="Psycholog-praktik%20Olena%20Ustrycka.html" class="nav-link">Psychologie</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Курс чесьké мovi -->
+        <div class="course-card">
+            <h2>Kurz českého jazyka 🇨🇿</h2>
+            <div class="course-details">
+                <h3>Pro koho:</h3>
+                <ul>
+                    <li>Děti od 8 do 14 let</li>
+                    <li>Teenageři od 16 let</li>
+                    <li>Dospělí</li>
+                </ul>
+                
+                <h3>Informace o kurzu:</h3>
+                <ul>
+                    <li>Skupiny do 10 osob</li>
+                    <li>Doba trvání: 1 hodina</li>
+                    <li>Cena: 3000 CZK za 10 lekcí</li>
+                    <li>Místo: Praha 9, Vinoř (bus 369, 302 Přezletice - Vinořská)</li>
+                    <li>Zahájení: začátek října</li>
+                </ul>
+            </div>
+            
+            <div class="teacher-section">
+                <div class="teacher-photo">
+                   <img src="ivan_photo.jpg" alt="Ivan">
+                </div>
+                <h3>Ivan</h3>
+                <p>Učitel anglického a českého jazyka s více než 5letou praxí. Absolvent Karlovy univerzity.</p>
+                <p><strong>Vzdělání a certifikáty:</strong></p>
+                <ul>
+                    <li>Karlova univerzita</li>
+                    <li>Teach English abroad</li>
+                    <li>TEFL/TESOL teacher training</li>
+                    <li>Academic writing in English</li>
+                </ul>
+                <p><strong>Metodika:</strong> Maximálně jednoduchý výklad českého a anglického jazyka v uvolněné atmosféře pro dosažení nejlepších výsledků.</p>
+            </div>
+            
+            <button class="enroll-btn" onclick="openModal('czech')">Zapsat se na kurz</button>
+        </div>
+
+        <!-- Курс англійської мови -->
+        <div class="course-card">
+            <h2>Kurz anglického jazyka 🇬🇧</h2>
+            <div class="course-details">
+                <h3>Pro koho:</h3>
+                <ul>
+                    <li>Děti od 6 let</li>
+                    <li>Teenageři od 16 let</li>
+                    <li>Dospělí</li>
+                </ul>
+                
+                <h3>Informace o kurzu:</h3>
+                <ul>
+                    <li>Skupiny do 10 osob</li>
+                    <li>Doba trvání: 2 hodiny</li>
+                    <li>Cena: 600 CZK za lekci</li>
+                    <li>Abonmá na 10 lekcí: 6000 CZK</li>
+                    <li>Místo: Praha 9, Vinoř (bus 369, 302 Přezletice - Vinořská)</li>
+                </ul>
+            </div>
+            
+            <div class="teacher-section">
+                <div class="teacher-photo">
+                    <img src="kamilla_photo.jpg" alt="Kamilla" style="object-position: top;">
+                </div>
+                <h3>Kamilla Diakonova</h3>
+                <p><strong>Vzdělání:</strong> BA in International Relations and Asian Studies, English (dokončení: září 2025)</p>
+                <p><strong>Metodika "Dnes učíme, zítra mluvíme":</strong></p>
+                <p>Kombinuje tradiční formy výuky s důrazem na konverzační praxi, herní úkoly a moderní technologie. Angličtina se učí prostřednictvím zajímavých situací a známého obsahu, což činí proces srozumitelným a zajímavým pro všechny věkové kategorie.</p>
+            </div>
+            
+            <button class="enroll-btn" onclick="openModal('english')">Zapsat se na kurz</button>
+        </div>
+
+        <div class="course-card">
+            <h2>Individuální doučování a speciální pedagogika</h2>
+            <div class="course-details">
+                <h3>Nabízíme:</h3>
+                <ul>
+                    <li>Individuální doučování českého jazyka</li>
+                    <li>Doučování matematiky</li>
+                    <li>Reedukace specifických poruch učení</li>
+                    <li>Pomoc s potížemi se čtením a psaním</li>
+                </ul>
+                
+                <h3>Ceny:</h3>
+                <ul>
+                    <li>Individuální hodina: 700 CZK</li>
+                    <li>Skupinka 2 dětí: 450 CZK za dítě</li>
+                    <li>Skupinka 3 dětí: 350 CZK za dítě</li>
+                </ul>
+            </div>
+            
+            <div class="teacher-section">
+                <div class="teacher-photo">
+                     <img src="zuzana_photo.jpg" alt="Zuzana Svobodová">
+                </div>
+                <h3>Mgr. et Mgr. Zuzana Svobodová</h3>
+                <p><strong>Specializace:</strong> Speciální pedagog</p>
+                <p><strong>Praxe:</strong> 14 let zkušeností ve školství</p>
+                <p><strong>Oblasti působení:</strong></p>
+                <ul>
+                    <li>Práce ve škole</li>
+                    <li>Působení v pedagogicko-psychologické poradně (PPP)</li>
+                    <li>Individuální a skupinová péče o děti s potížemi ve škole</li>
+                    <li>Specializace na český jazyk a matematiku</li>
+                    <li>Odborná pomoc při poruchách učení</li>
+                </ul>
+            </div>
+            
+            <button class="enroll-btn" onclick="openModal('special')">Zapsat se na doučování</button>
+        </div>
+    </div>
+
+    <!-- Модальне вікно з формою -->
+    <div id="enrollModal" class="modal">
+        <div class="modal-content">
+            <form action="https://formspree.io/f/xldwyqjw" method="POST" class="enroll-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" required>
+                    <label for="name">Jméno a příjmení</label>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" name="phone" required>
+                    <label for="phone">Telefon</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email</label>
+                </div>
+                <input type="hidden" id="course" name="course">
+                <div class="modal-buttons">
+                    <button type="button" class="modal-btn cancel" onclick="closeModal()">Zrušit</button>
+                    <button type="submit" class="modal-btn submit">Odeslat</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Scroll Animation
+        function handleIntersection(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }
+
+        const observer = new IntersectionObserver(handleIntersection, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.course-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Enhanced Modal Handling
+        function openModal(course) {
+            const modal = document.getElementById('enrollModal');
+            document.getElementById('course').value = course;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('enrollModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('enrollModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Додайте обrobník відправки форми
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Děkujeme za registraci! Brzy se vám ozveme.');
+                    closeModal();
+                    this.reset();
+                } else {
+                    alert('Něco se pokazilo. Zkuste to prosím znovu.');
+                }
+            })
+            .catch(error => {
+                alert('Něco se pokazilo. Zkuste to prosím znovu.');
+            });
+        });
+    </script>
+</body>
+</html>

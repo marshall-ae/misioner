@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Языковые курсы</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="lang-switcher">
+            <a href="../courses.html" class="lang-btn">🇨🇿</a>
+            <a href="../ua/courses.html" class="lang-btn">🇺🇦</a>
+            <a href="courses.html" class="lang-btn active">🇷🇺</a>
+        </div>
+        <h1>Языковые курсы</h1>
+        <nav>
+            <a href="index.html" class="nav-link">Главная</a>
+            <a href="Psycholog-praktik%20Olena%20Ustrycka.html" class="nav-link">Психология</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Курс чешского языка -->
+        <div class="course-card">
+            <h2>Курс чешского языка 🇨🇿</h2>
+            <div class="course-details">
+                <h3>Для кого:</h3>
+                <ul>
+                    <li>Дети от 8 до 14 лет</li>
+                    <li>Подростки от 16 лет</li>
+                    <li>Взрослые</li>
+                </ul>
+                
+                <h3>Информация о курсе:</h3>
+                <ul>
+                    <li>Группы до 10 человек</li>
+                    <li>Длительность: 1 час</li>
+                    <li>Цена: 3000 CZK за 10 занятий</li>
+                    <li>Место: Прага 9, Винорж (автобус 369, 302 Přezletice - Vinořská)</li>
+                    <li>Начало: в начале октября</li>
+                </ul>
+            </div>
+            
+            <div class="teacher-section">
+                <div class="teacher-photo">
+                   <img src="../ivan_photo.jpg" alt="Иван">
+                </div>
+                <h3>Иван</h3>
+                <p>Преподаватель английского и чешского языков с более чем 5-летним опытом. Выпускник Карлова университета.</p>
+                <p><strong>Образование и сертификаты:</strong></p>
+                <ul>
+                    <li>Карлов университет</li>
+                    <li>Teach English abroad</li>
+                    <li>TEFL/TESOL teacher training</li>
+                    <li>Academic writing in English</li>
+                </ul>
+                <p><strong>Методика:</strong> Максимально простое объяснение чешского и английского языков в непринужденной атмосфере для достижения наилучших результатов.</p>
+            </div>
+            
+            <button class="enroll-btn" onclick="openModal('czech')">Записаться на курс</button>
+        </div>
+
+        <!-- Курс английского языка -->
+        <div class="course-card">
+            <h2>Курс английского языка 🇬🇧</h2>
+            <div class="course-details">
+                <h3>Для кого:</h3>
+                <ul>
+                    <li>Дети от 6 лет</li>
+                    <li>Подростки от 16 лет</li>
+                    <li>Взрослые</li>
+                </ul>
+                
+                <h3>Информация о курсе:</h3>
+                <ul>
+                    <li>Группы до 10 человек</li>
+                    <li>Длительность: 2 часа</li>
+                    <li>Цена: 600 CZK за занятие</li>
+                    <li>Абонемент на 10 занятий: 6000 CZK</li>
+                    <li>Место: Прага 9, Винорж (автобус 369, 302 Přezletice - Vinořská)</li>
+                </ul>
+            </div>
+            
+            <div class="teacher-section">
+                <div class="teacher-photo">
+                    <img src="../kamilla_photo.jpg" alt="Камилла" style="object-position: top;">
+                </div>
+                <h3>Камилла Диаконова</h3>
+                <p><strong>Образование:</strong> BA in International Relations and Asian Studies, English (окончание: сентябрь 2025)</p>
+                <p><strong>Методика "Сегодня учим – завтра говорим":</strong></p>
+                <p>Сочетает традиционные формы обучения с акцентом на разговорную практику, игровые задания и современные технологии. Английский язык изучается через интересные ситуации и знакомый контент, что делает процесс понятным и увлекательным для всех возрастных категорий.</p>
+            </div>
+            
+            <button class="enroll-btn" onclick="openModal('english')">Записаться на курс</button>
+        </div>
+
+        <!-- Индивидуальные занятия -->
+        <div class="course-card">
+            <h2>Индивидуальные занятия и специальная педагогика</h2>
+            <div class="course-details">
+                <h3>Мы предлагаем:</h3>
+                <ul>
+                    <li>Индивидуальные занятия по чешскому языку</li>
+                    <li>Поддержка по математике</li>
+                    <li>Коррекция специфических нарушений обучения</li>
+                    <li>Помощь при трудностях с чтением и письмом</li>
+                </ul>
+                
+                <h3>Цены:</h3>
+                <ul>
+                    <li>Индивидуальное занятие: 700 CZK</li>
+                    <li>Группа из 2 детей: 450 CZK за ребёнка</li>
+                    <li>Группа из 3 детей: 350 CZK за ребёнка</li>
+                </ul>
+            </div>
+            
+            <div class="teacher-section">
+                <div class="teacher-photo">
+                     <img src="../zuzana_photo.jpg" alt="Зузана Свободова">
+                </div>
+                <h3>Mgr. et Mgr. Зузана Свободова</h3>
+                <p><strong>Специализация:</strong> Специальный педагог</p>
+                <p><strong>Опыт:</strong> 14 лет работы в сфере образования</p>
+                <p><strong>Области деятельности:</strong></p>
+                <ul>
+                    <li>Работа в школе</li>
+                    <li>Опыт работы в психолого-педагогической консультации (PPP)</li>
+                    <li>Индивидуальная и групповая помощь детям с трудностями в обучении</li>
+                    <li>Специализация по чешскому языку и математике</li>
+                    <li>Профессиональная помощь при нарушениях обучения</li>
+                </ul>
+            </div>
+            
+            <button class="enroll-btn" onclick="openModal('special')">Записаться</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно -->
+    <div id="enrollModal" class="modal">
+        <div class="modal-content">
+            <form action="https://formspree.io/f/xldwyqjw" method="POST" class="enroll-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" required>
+                    <label for="name">Имя и фамилия</label>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" name="phone" required>
+                    <label for="phone">Телефон</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email</label>
+                </div>
+                <input type="hidden" id="course" name="course">
+                <div class="modal-buttons">
+                    <button type="button" class="modal-btn cancel" onclick="closeModal()">Отмена</button>
+                    <button type="submit" class="modal-btn submit">Отправить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Анимация при скролле
+        function handleIntersection(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }
+
+        const observer = new IntersectionObserver(handleIntersection, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.course-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Работа модального окна
+        function openModal(course) {
+            const modal = document.getElementById('enrollModal');
+            document.getElementById('course').value = course;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('enrollModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('enrollModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Обработка отправки формы
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Спасибо за регистрацию! Мы свяжемся с вами в ближайшее время.');
+                    closeModal();
+                    this.reset();
+                } else {
+                    alert('Что-то пошло не так. Попробуйте ещё раз.');
+                }
+            })
+            .catch(error => {
+                alert('Что-то пошло не так. Попробуйте ещё раз.');
+            });
+        });
+    </script>
+</body>
+</html>

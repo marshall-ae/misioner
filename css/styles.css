@@ -1,0 +1,568 @@
+/* Modern Color Palette */
+:root {
+    --primary: #2c3e50;
+    --secondary: #3498db;
+    --accent: #e74c3c;
+    --light: #ecf0f1;
+    --dark: #2c3e50;
+    --success: #2ecc71;
+    --gradient: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    background: var(--light);
+    min-height: 100vh;
+}
+
+/* Welcome Page Styles */
+.welcome-body {
+    background: var(--gradient);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.welcome-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transform: translateY(0);
+    transition: var(--transition);
+}
+
+.welcome-container:hover {
+    transform: translateY(-5px);
+}
+
+.welcome-container h1 {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    animation: fadeInDown 0.8s ease;
+}
+
+/* Navigation & Header */
+header {
+    background: var(--gradient);
+    color: white;
+    padding: 1.5rem;
+    position: relative;
+    box-shadow: var(--shadow-md);
+    text-align: center; /* Центруємо весь контент в хедері */
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap; /* Дозволяємо перенос на новий рядок */
+    align-items: center;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.7rem 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    min-width: 150px; /* Мінімальна ширина для кнопок */
+    text-align: center; /* Центруємо текст в кнопках */
+}
+
+.nav-link:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.nav-link:hover:before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Language Switcher */
+.lang-switcher {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.lang-btn {
+    padding: 0.5rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: var(--transition);
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Buttons */
+.choice-btn, .enroll-btn {
+    background: var(--secondary);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    margin: 0.5rem;
+    min-width: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.choice-btn:hover, .enroll-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    background: var(--primary);
+}
+
+/* Course Cards */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    animation: fadeIn 1s ease;
+}
+
+.course-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    transform: translateY(0);
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Teacher Section */
+.teacher-section {
+    background: var(--light);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin: 2rem 0;
+    transition: var(--transition);
+}
+
+.teacher-photo {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 1.5rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.teacher-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.teacher-photo:hover img {
+    transform: scale(1.05);
+}
+
+/* Services Section */
+.service {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    transform: translateX(0);
+}
+
+.service:hover {
+    transform: translateX(10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.service img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-right: 1.5rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.service:hover img {
+    transform: scale(1.05);
+}
+
+.service-info h3 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: var(--secondary);
+}
+
+.service-info p {
+    margin: 0.5rem 0 0;
+    color: var(--dark);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Quote Section */
+.quote {
+    text-align: center;
+    font-style: italic;
+    margin: 3rem auto;
+    padding: 2rem;
+    color: var(--primary);
+    font-weight: 500;
+    max-width: 800px;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.quote:before,
+.quote:after {
+    content: '"';
+    position: absolute;
+    font-size: 4rem;
+    color: var(--secondary);
+    opacity: 0.2;
+}
+
+.quote:before {
+    top: 0;
+    left: 20px;
+}
+
+.quote:after {
+    bottom: -20px;
+    right: 20px;
+}
+
+/* Footer */
+.footer {
+    background: var(--gradient);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer a:hover {
+    opacity: 0.8;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    width: 90%;
+    max-width: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    transition: transform 0.3s ease;
+    animation: modalAppear 0.3s forwards;
+}
+
+.modal.active .modal-content {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Form Styles Enhancement */
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+    font-weight: 500;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e1e1e1;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.form-group input:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    outline: none;
+}
+
+.form-group input:focus + label {
+    transform: translateY(-25px);
+    font-size: 0.85rem;
+    color: var(--secondary);
+}
+
+/* Modal Buttons */
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.modal-btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-btn.submit {
+    background: var(--secondary);
+    color: white;
+    border: none;
+}
+
+.modal-btn.cancel {
+    background: transparent;
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+}
+
+.modal-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Background Pattern */
+.course-page {
+    background-color: var(--light);
+    background-image: 
+        radial-gradient(circle at 25px 25px, rgba(52, 152, 219, 0.15) 2%, transparent 0%),
+        radial-gradient(circle at 75px 75px, rgba(52, 152, 219, 0.1) 2%, transparent 0%);
+    background-size: 100px 100px;
+}
+
+/* Course Cards Appearance Animation */
+.course-card {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.course-card.visible {
+    animation: cardAppear 0.6s ease forwards;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%) scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .service {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .service img {
+        margin: 0 0 1rem 0;
+        width: 150px;
+        height: 150px;
+    }
+
+    .quote {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .nav-link {
+        width: 100%;
+        max-width: 300px; /* Максимальна ширина на мобільних */
+        margin: 0.5rem 0;
+    }
+
+    .lang-switcher {
+        position: relative;
+        top: 0;
+        right: 0;
+        justify-content: center;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-container {
+        padding: 2rem;
+    }
+
+    .choice-btn {
+        width: 100%;
+    }
+
+    .lang-switcher {
+        position: static;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .teacher-photo {
+        width: 200px;
+        height: 200px;
+    }
+
+    .service-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .service img {
+        width: 100px;
+        height: 100px;
+    }
+
+    header {
+        padding: 1rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+}
