@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Title</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .course-card { display:flex; flex-direction:row; align-items:flex-start; gap:20px; margin:20px 0; padding:20px; background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+        .teacher-section { display:flex; flex-direction:column; flex:0 0 220px; align-items:center; gap:12px; }
+        .teacher-photo { width:100%; max-height:220px; overflow:hidden; }
+        .teacher-photo img { width:100%; height:auto; border-radius:8px; display:block; }
+        .course-details { flex:1; }
+        .course-details h3 { margin-top:0; }
+        .course-details ul { margin:8px 0; padding-left:20px; }
+        .enroll-btn { margin-top:16px; }
+        @media (max-width:768px) {
+            .course-card { flex-direction:column; }
+            .teacher-section { flex-direction:row; flex:1; align-items:flex-start; }
+            .teacher-photo { flex:0 0 150px; max-height:none; }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -21,7 +36,8 @@
     </header>
 
     <div class="container">
-        <!-- Курс чесьké мovi -->
+        <!-- ПЕРШІ ДВА БЛОКИ ТИМЧАСОВО ЗАКОМЕНТОВАНІ -->
+        <!--
         <div class="course-card">
             <h2>Kurz českého jazyka 🇨🇿</h2>
             <div class="course-details">
@@ -61,7 +77,6 @@
             <button class="enroll-btn" onclick="openModal('czech')">Zapsat se na kurz</button>
         </div>
 
-        <!-- Курс англійської мови -->
         <div class="course-card">
             <h2>Kurz anglického jazyka 🇬🇧</h2>
             <div class="course-details">
@@ -94,10 +109,22 @@
             
             <button class="enroll-btn" onclick="openModal('english')">Zapsat se na kurz</button>
         </div>
-
+        -->
+        
         <div class="course-card">
-            <h2>Individuální doučování a speciální pedagogika</h2>
+            <div class="teacher-section">
+                <div class="teacher-photo">
+                    <img src="zuzana_photo.jpg" alt="Zuzana Svobodová">
+                </div>
+                <div>
+                    <h3>Mgr. et Mgr. Zuzana Svobodová</h3>
+                    <p><strong>Specializace:</strong> Speciální pedagog</p>
+                    <p><strong>Praxe:</strong> 14 let zkušeností ve školství</p>
+                </div>
+            </div>
+
             <div class="course-details">
+                <h2>Individuální doučování a speciální pedagogika</h2>
                 <h3>Nabízíme:</h3>
                 <ul>
                     <li>Individuální doučování českého jazyka</li>
@@ -112,16 +139,8 @@
                     <li>Skupinka 2 dětí: 450 CZK za dítě</li>
                     <li>Skupinka 3 dětí: 350 CZK za dítě</li>
                 </ul>
-            </div>
-            
-            <div class="teacher-section">
-                <div class="teacher-photo">
-                     <img src="zuzana_photo.jpg" alt="Zuzana Svobodová">
-                </div>
-                <h3>Mgr. et Mgr. Zuzana Svobodová</h3>
-                <p><strong>Specializace:</strong> Speciální pedagog</p>
-                <p><strong>Praxe:</strong> 14 let zkušeností ve školství</p>
-                <p><strong>Oblasti působení:</strong></p>
+
+                <h3>Oblasti působení:</h3>
                 <ul>
                     <li>Práce ve škole</li>
                     <li>Působení v pedagogicko-psychologické poradně (PPP)</li>
@@ -129,9 +148,9 @@
                     <li>Specializace na český jazyk a matematiku</li>
                     <li>Odborná pomoc při poruchách učení</li>
                 </ul>
+                
+                <button class="enroll-btn" onclick="openModal('special')">Zapsat se na doučování</button>
             </div>
-            
-            <button class="enroll-btn" onclick="openModal('special')">Zapsat se na doučování</button>
         </div>
     </div>
 

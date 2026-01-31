@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Psycholog-praktik - Olena Ustrycka</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .photo-placeholder { width:200px;height:200px;background:#eee;display:inline-block;vertical-align:top;margin-right:20px; }
+        .bio { max-width:800px; display:inline-block; vertical-align:top; }
+        .psych-profile { display:flex; align-items:flex-start; gap:20px; max-width:1000px; margin:24px auto; padding:24px; box-sizing:border-box; background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+        .photo-column { display:flex; flex-direction:column; align-items:center; gap:12px; flex:0 0 240px; }
+        .photo-column .psych-name { margin:0 0 8px 0; font-size:1.25rem; font-weight:600; text-align:center; }
+        .psych-profile .photo-placeholder { width:220px; height:220px; background:#eee; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:8px; }
+        .psych-profile-photo { width:100%; height:100%; object-fit:cover; transition:transform 0.3s ease; }
+        .psych-profile .photo-placeholder:hover .psych-profile-photo { transform:scale(1.08); }
+        .psych-profile .bio { flex:1; margin:0; padding:0; }
+        .psych-profile .bio p { margin:0 0 14px 0; line-height:1.8; font-size:0.95rem; text-align:justify; }
+        .psych-profile .bio p:last-child { margin-bottom:0; }
+        @media (max-width:700px) {
+            .psych-profile { flex-direction:column; align-items:center; text-align:center; padding:16px; }
+            .psych-profile .bio p { text-align:left; }
+        }
+    </style>
 </head>
 <body>
 
@@ -22,6 +39,27 @@
 </header>
 
 <div class="container">
+
+
+
+    <div class="psych-profile">
+        <div class="photo-column">
+            <h2 class="psych-name">Olena Ustrycka</h2>
+            <div class="photo-placeholder" aria-label="photo placeholder"><img src="photo-olena.jpg" alt="Olena Ustrycka" class="psych-profile-photo"></div>
+        </div>
+        <div class="bio">
+            <p><strong>Vzdělání:</strong></p>
+            <p>Ivanofrankivský pedagogický institut — historie a výchovná práce</p>
+            <p>Lvovská státní univerzita jména Ivana Franka — psycholog praktik s právem vyučovat</p>
+            <p>Univerzita Karlova (Praha) — psycholog praktik s právem vyučovat</p>
+            
+            <p><strong>Pracovní zkušenost:</strong></p>
+            <p>Pracovala ve škole a v oddělení školství jako školní psycholog. Nyní působím jako praktikující psycholožka v Praze, registrovaná jako živnostník.</p>
+            
+            <p><strong>Specializace:</strong></p>
+            <p>Absolvovala jsem kurz Kvantové terapie v Praze (autor kurzu: Pavel Vondrášek).</p>
+        </div>
+    </div>
 
     <div class="service">
         <img src="6.webp" alt="Individuální konzultace">
