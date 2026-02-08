@@ -133,12 +133,7 @@
         </div>
     </div>
 
-    <div class="quote">
-        «Каждый заслуживает гармоничной и счастливой жизни. Жизнь порой бывает сложной, но в каждом из нас есть сила изменить её к лучшему.»  
-        <br>Я помогаю людям восстановить внутреннее равновесие, преодолеть препятствия и открыть новые возможности. В безопасной атмосфере мы работаем над тем, чтобы ваша жизнь стала более осознанной, спокойной и счастливой.  
-        <br>Верю, что каждый человек имеет огромный потенциал для исцеления и развития, нужно лишь заново его открыть. Вместе мы найдём ваши сильные стороны и поддержим вашу смелость сделать первый шаг.  
-        <br>Даже небольшое изменение восприятия может открыть путь к большим жизненным преобразованиям.
-    </div>
+    <div id="quotes-container"></div>
 
 </div>
 
@@ -151,6 +146,47 @@
     <p>Facebook: <a href="https://www.facebook.com/share/1AzVaEaFmD/?mibextid=wwXIfr" target="_blank">Elena Ustricka</a></p>
     <p>TikTok: <a href="https://www.tiktok.com/@yourusername" target="_blank">@olena.ustrycka</a></p>
 </div>
+
+<script>
+  const sheetUrl = 'https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/export?format=csv';
+  const currentLang = 'ru';
+
+  async function loadQuotes() {
+    const container = document.getElementById('quotes-container');
+    
+    if (!container) return;
+
+    try {
+      const response = await fetch(sheetUrl);
+      const data = await response.text();
+      const rows = data.split('\n').map(row => row.split(','));
+
+      let colIndex = 2; // Російська — колонка 2
+
+      container.innerHTML = '';
+
+      rows.reverse().forEach(row => {
+        if (row[0] && row[0].trim() === 'quote') {
+          const text = row[colIndex];
+          
+          if (text && text.trim() !== '') {
+            const quoteHTML = `
+              <div class="quote">
+                ${text.replace(/"/g, '')}
+              </div>
+            `;
+            container.insertAdjacentHTML('beforeend', quoteHTML);
+          }
+        }
+      });
+
+    } catch (error) {
+      console.error('Ошибка загрузки:', error);
+    }
+  }
+
+  loadQuotes();
+</script>
 
 </body>
 </html>

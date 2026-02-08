@@ -131,19 +131,11 @@
         <div class="service-info">
             <h3>Více o kvantové terapii</h3>
             <p>Terapie zaměřená na práci s vědomím, podvědomím a energetickým polem klienta. Pomáhá uvolnit bloky, obnovit energii a podpořit osobní růst.
-                Kvantová terapie kombinuje práci s energetickými poli a vědomou změnu myšlení. Pomáhá pochopit hluboké příčiny problémů a umožňuje jejich transformaci. Je to moderní metoda, která propojuje psychologii, spiritualitu a kvantovou fyziku.
-                
-                </p>
+                Kvantová terapie kombinuje práci s energetickými poli a vědomou změnu myšlení. Pomáhá pochopit hluboké příčiny problémů a umožňuje jejich transformaci. Je to moderní metoda, která propojuje psychologii, spiritualitu a kvantovou fyziku.</p>
         </div>
     </div>
 
-    <div class="quote">
-        „Každý si zaslouží harmonický a úspěšný život. Život může být někdy složitý, ale v každém z nás je síla změnit ho k lepšímu.“  
-    </p> Pomáhám lidem obnovit vnitřní rovnováhu, překonat překážky a objevit nové možnosti. V bezpečném prostředí spolu pracujeme na tom, aby se váš život stal vědomějším, klidnějším a šťastnějším.  
-        Věřím, že každý člověk má v sobě obrovský potenciál k uzdravení i růstu, jen je potřeba ho znovu objevit. Společně najdeme vaše silné stránky a podpoříme vaši odvahu udělat první krok k lepšímu životu.  
-        I malá změna ve vnímání může otevřít cestu k velkým životním proměnám.
-    </div>
-         </p>
+    <div id="quotes-container"></div>
 
 </div>
 
@@ -155,7 +147,48 @@
     <p>WhatsApp: <a href="https://wa.me/420777754457" target="_blank">+420 777 754 457</a></p>
     <p>Facebook: <a href="https://www.facebook.com/share/1AzVaEaFmD/?mibextid=wwXIfr" target="_blank">Elena Ustricka</a></p>
     <p>TikTok: <a href="https://www.tiktok.com/@yourusername" target="_blank">@olena.ustrycka</a></p>
-
 </div>
+
+<script>
+  const sheetUrl = 'https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/export?format=csv';
+  const currentLang = 'cs';
+
+  async function loadQuotes() {
+    const container = document.getElementById('quotes-container');
+    
+    if (!container) return;
+
+    try {
+      const response = await fetch(sheetUrl);
+      const data = await response.text();
+      const rows = data.split('\n').map(row => row.split(','));
+
+      let colIndex = 3; // Чеська — колонка 3
+
+      container.innerHTML = '';
+
+      rows.reverse().forEach(row => {
+        if (row[0] && row[0].trim() === 'quote') {
+          const text = row[colIndex];
+          
+          if (text && text.trim() !== '') {
+            const quoteHTML = `
+              <div class="quote">
+                ${text.replace(/"/g, '')}
+              </div>
+            `;
+            container.insertAdjacentHTML('beforeend', quoteHTML);
+          }
+        }
+      });
+
+    } catch (error) {
+      console.error('Chyba načítání:', error);
+    }
+  }
+
+  loadQuotes();
+</script>
+
 </body>
 </html>

@@ -129,16 +129,11 @@
         <div class="service-info">
             <h3>Більше про квантову терапію</h3>
             <p>Терапія спрямована на роботу зі свідомістю, підсвідомістю та енергетичним полем клієнта. Допомагає звільнити блоки, відновити енергію і підтримати особистісний розвиток.
-                Квантова терапія поєднує роботу з енергетичними полями та свідомими змінами мислення. Вона допомагає зрозуміти глибинні причини труднощів і трансформувати їх. Це сучасний метод, який об’єднує психологію, духовність і квантову фізику.</p>
+                Квантова терапія поєднує роботу з енергетичними полями та свідомими змінами мислення. Вона допомагає зрозуміти глибинні причини труднощів і трансформувати їх. Це сучасний метод, який об'єднує психологію, духовність і квантову фізику.</p>
         </div>
     </div>
 
-    <div class="quote">
-        «Кожен заслуговує на гармонійне та щасливе життя. Життя іноді буває складним, але в кожному з нас є сила змінити його на краще.»  
-        <br>Я допомагаю людям відновити внутрішню рівновагу, подолати перешкоди та відкрити нові можливості. У безпечному середовищі ми працюємо над тим, щоб ваше життя стало усвідомленішим, спокійнішим і щасливішим.  
-        <br>Вірю, що кожна людина має величезний потенціал для зцілення і розвитку, потрібно лише знову його відкрити. Разом ми знайдемо ваші сильні сторони і підтримаємо сміливість зробити перший крок.  
-        <br>Навіть невелика зміна у сприйнятті може відкрити шлях до великих життєвих трансформацій.
-    </div>
+    <div id="quotes-container"></div>
 
 </div>
 
@@ -151,6 +146,47 @@
     <p>Facebook: <a href="https://www.facebook.com/share/1AzVaEaFmD/?mibextid=wwXIfr" target="_blank">Elena Ustricka</a></p>
     <p>TikTok: <a href="https://www.tiktok.com/@yourusername" target="_blank">@olena.ustrycka</a></p>
 </div>
+
+<script>
+  const sheetUrl = 'https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/export?format=csv';
+  const currentLang = 'uk';
+
+  async function loadQuotes() {
+    const container = document.getElementById('quotes-container');
+    
+    if (!container) return;
+
+    try {
+      const response = await fetch(sheetUrl);
+      const data = await response.text();
+      const rows = data.split('\n').map(row => row.split(','));
+
+      let colIndex = 1; // Українська — колонка 1
+
+      container.innerHTML = '';
+
+      rows.reverse().forEach(row => {
+        if (row[0] && row[0].trim() === 'quote') {
+          const text = row[colIndex];
+          
+          if (text && text.trim() !== '') {
+            const quoteHTML = `
+              <div class="quote">
+                ${text.replace(/"/g, '')}
+              </div>
+            `;
+            container.insertAdjacentHTML('beforeend', quoteHTML);
+          }
+        }
+      });
+
+    } catch (error) {
+      console.error('Помилка завантаження:', error);
+    }
+  }
+
+  loadQuotes();
+</script>
 
 </body>
 </html>
