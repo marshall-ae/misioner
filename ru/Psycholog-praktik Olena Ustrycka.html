@@ -147,42 +147,67 @@
     <p>TikTok: <a href="https://www.tiktok.com/@yourusername" target="_blank">@olena.ustrycka</a></p>
 </div>
 
-<script>
-  const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQA91fk4pt_X_PM999fyncyy-ybhkzF_3VNnDPNvGz4GWmErW3a1g1g3eZQtl4c5LgEV4A01DqlIvqC/pub?output=csv';
-  const currentLang = 'ru';
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 
-  async function loadQuotes() {
+<script>
+  // Твоє посилання (залиш як є)
+  const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQA91fk4pt_X_PM999fyncyy-ybhkzF_3VNnDPNvGz4GWmErW3a1g1g3eZQtl4c5LgEV4A01DqlIvqC/pub?output=csv';
+
+  // ВАЖЛИВО: Змінюй це для кожної мови ('uk', 'ru', 'cs')
+  const currentLang = 'ru'; 
+
+  function loadQuotes() {
     const container = document.getElementById('quotes-container');
-    
     if (!container) return;
 
-    try {
-      const response = await fetch(sheetUrl);
-      const data = await response.text();
-      const rows = data.split('\n').map(row => row.split(','));
+    // Використовуємо PapaParse для розумного читання таблиці
+    Papa.parse(sheetUrl, {
+      download: true,
+      header: false, // У нас немає технічних заголовків для бібліотеки, ми їх самі розберемо
+      complete: function(results) {
+        const rows = results.data; // Отримуємо чисті дані
+        
+        // Визначаємо колонку: B=1, C=2, D=3
+        let colIndex = 1; 
+        if (currentLang === 'ru') colIndex = 2;
+        if (currentLang === 'cs') colIndex = 3;
 
-      let colIndex = 2; // Російська — колонка 2
+        container.innerHTML = ''; // Очистка
 
-      container.innerHTML = '';
+        // Проходимо по рядках (нові зверху)
+        rows.reverse().forEach(row => {
+          // Перевірка на "quote" у першій колонці
+          if (row[0] && row[0].trim() === 'quote') {
+              let text = row[colIndex]; 
 
-      rows.reverse().forEach(row => {
-        if (row[0] && row[0].trim() === 'quote') {
-          const text = row[colIndex];
-          
-          if (text && text.trim() !== '') {
-            const quoteHTML = `
-              <div class="quote">
-                ${text.replace(/"/g, '')}
-              </div>
-            `;
-            container.insertAdjacentHTML('beforeend', quoteHTML);
+              if (text && text.trim() !== '') {
+                  
+                  // 🔥 МАГІЯ ТУТ:
+                  // 1. Прибираємо зайві лапки на початку і в кінці (якщо є)
+                  // 2. Замінюємо переноси рядків (\n) на тег <br>
+                  text = text.replace(/^"|"$/g, '').replace(/\n/g, '<br><br>');
+
+                  // 👇 ТВІЙ ДИЗАЙН
+                  const quoteHTML = `
+                      <div class="quote-item" style="margin-bottom: 30px;">
+                        <blockquote style="border-left: 4px solid #ddd; padding-left: 15px; margin: 0;">
+                           <p style="font-style: italic; font-size: 1.1em;">
+                             ${text}
+                           </p>
+                        </blockquote>
+                    </div>
+                  `;
+                  // 👆 КІНЕЦЬ ДИЗАЙНУ
+
+                  container.insertAdjacentHTML('beforeend', quoteHTML);
+              }
           }
-        }
-      });
-
-    } catch (error) {
-      console.error('Ошибка загрузки:', error);
-    }
+        });
+      },
+      error: function(err) {
+        console.error('Помилка CSV:', err);
+      }
+    });
   }
 
   loadQuotes();
