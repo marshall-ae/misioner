@@ -152,54 +152,50 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 
 <script>
-  // Твоє посилання (залиш як є)
   const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQA91fk4pt_X_PM999fyncyy-ybhkzF_3VNnDPNvGz4GWmErW3a1g1g3eZQtl4c5LgEV4A01DqlIvqC/pub?output=csv';
 
-  // ВАЖЛИВО: Змінюй це для кожної мови ('uk', 'ru', 'cs')
+  // ⚠️ НЕ ЗАБУДЬТЕ ЗМІНИТИ МОВУ ДЛЯ РІЗНИХ ФАЙЛІВ ('uk', 'ru', 'cs')
   const currentLang = 'cs'; 
 
   function loadQuotes() {
     const container = document.getElementById('quotes-container');
     if (!container) return;
 
-    // Використовуємо PapaParse для розумного читання таблиці
+    // Використовуємо PapaParse (щоб текст не розбивався)
     Papa.parse(sheetUrl, {
       download: true,
-      header: false, // У нас немає технічних заголовків для бібліотеки, ми їх самі розберемо
+      header: false,
+      skipEmptyLines: true,
       complete: function(results) {
-        const rows = results.data; // Отримуємо чисті дані
+        const rows = results.data;
         
         // Визначаємо колонку: B=1, C=2, D=3
         let colIndex = 1; 
         if (currentLang === 'ru') colIndex = 2;
         if (currentLang === 'cs') colIndex = 3;
 
-        container.innerHTML = ''; // Очистка
+        container.innerHTML = ''; 
 
-        // Проходимо по рядках (нові зверху)
         rows.reverse().forEach(row => {
-          // Перевірка на "quote" у першій колонці
+          // Шукаємо рядок з 'quote'
           if (row[0] && row[0].trim() === 'quote') {
               let text = row[colIndex]; 
 
               if (text && text.trim() !== '') {
                   
-                  // 🔥 МАГІЯ ТУТ:
-                  // 1. Прибираємо зайві лапки на початку і в кінці (якщо є)
-                  // 2. Замінюємо переноси рядків (\n) на тег <br>
-                  text = text.replace(/^"|"$/g, '').replace(/\n/g, '<br><br>');
+                  // 1. Замінюємо переноси рядків (Enter) на <br>
+                  text = text.replace(/\n/g, '<br>');
+                  
+                  // 2. Видаляємо зайві лапки (як у вашому старому коді)
+                  text = text.replace(/"/g, '');
 
-                  // 👇 ТВІЙ ДИЗАЙН
+                  // 👇 ТУТ ВАШ СТАРИЙ ДИЗАЙН 👇
                   const quoteHTML = `
-                      <div class="quote-item" style="margin-bottom: 30px;">
-                        <blockquote style="border-left: 4px solid #ddd; padding-left: 15px; margin: 0;">
-                           <p style="font-style: italic; font-size: 1.1em;">
-                             ${text}
-                           </p>
-                        </blockquote>
-                    </div>
+                      <div class="quote">
+                          ${text}
+                      </div>
                   `;
-                  // 👆 КІНЕЦЬ ДИЗАЙНУ
+                  // 👆 
 
                   container.insertAdjacentHTML('beforeend', quoteHTML);
               }
@@ -207,12 +203,17 @@
         });
       },
       error: function(err) {
-        console.error('Помилка CSV:', err);
+        console.error('Помилка:', err);
       }
     });
   }
 
-  loadQuotes();
+  // Перевірка, чи завантажилась бібліотека
+  if(typeof Papa !== 'undefined') {
+      loadQuotes();
+  } else {
+      window.onload = loadQuotes;
+  }
 </script>
 
 </body>
